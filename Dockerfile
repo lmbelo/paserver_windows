@@ -7,7 +7,7 @@ SHELL ["powershell", "-Command"]
 WORKDIR C:\\PAServer
 
 # Download PAServer ZIP from Google Drive
-RUN Invoke-WebRequest -Uri "https://drive.usercontent.google.com/download?id=1FidLUJJHxbKdROxWIlGVQVsj_bvb0t3Y&export=download&authuser=0&confirm=t&uuid=75a2e795-cc82-4ae2-a2aa-1f32acbb3a0b&at=APcmpoyAWZLyXubF3n22W7_rhD5s%3A1744832917527" -OutFile paserver.zip ; \
+RUN Invoke-WebRequest -Uri "https://objects.githubusercontent.com/github-production-release-asset-2e65be/967651626/875acf35-3b19-4490-933e-6c229fb1919d?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=releaseassetproduction%2F20250416%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20250416T195309Z&X-Amz-Expires=300&X-Amz-Signature=f6d4f6e0b4225cfc8ab6fe93fc6e1ed5d8d315137002ad1aee437eca8dd8ed19&X-Amz-SignedHeaders=host&response-content-disposition=attachment%3B%20filename%3DPAServer_12_3.zip&response-content-type=application%2Foctet-stream" -OutFile paserver.zip ; \
     Expand-Archive -Path paserver.zip -DestinationPath . ; \
     Remove-Item paserver.zip
 
