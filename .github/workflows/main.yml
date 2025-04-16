@@ -1,0 +1,34 @@
+name: Build and Test PAServer Docker Image
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+jobs:
+  build:
+    runs-on: windows-latest
+
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v3
+
+    - name: Set up Docker
+      run: |
+        docker --version
+        docker info
+
+    - name: Build Docker image
+      run: |
+        docker build -t paserver-image -f Dockerfile .
+
+    - name: Run PAServer container
+      run: |
+        docker run -d --name paserver -p 64211:64211 paserver-image
+        timeout /t 5
+
+    - name: Verify PAServer is running
+      run: |
+        docker ps
+        docker logs paserver
