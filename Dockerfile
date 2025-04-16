@@ -8,9 +8,9 @@ SHELL ["powershell", "-Command"]
 WORKDIR C:\\PAServer
 
 # Download PAServer zip file from OneDrive using Invoke-WebRequest
-RUN Invoke-WebRequest -Uri "https://3aroma.dm.files.1drv.com/y4m35OvjObnsmV76hQuj8dY8kxg5MkoDCXQNeXF436gtdInfuXvgwEogSqkv1EEFKw_qci34aYDa4M5r6bjtTWn8DYSeBA8C42AYfQEkWIzuVYyFY1ZpAieTB15mUVZrY922IAcDIcog4dMT4K_xf2Rp_gdQUli4Dzh402biae5VQHs2oXkBcOx5i94nv_eoHHEERxeogzfOcpUWLMuYfBObrqXVb6XInv3oAxnYxFL2CE?AVOverride=1" -OutFile paserver.zip ; \
-    Expand-Archive -Path paserver.zip -DestinationPath . ; \
-    Remove-Item paserver.zip
+RUN Invoke-WebRequest -Uri "https://3aroma.dm.files.1drv.com/y4m35OvjObnsmV76hQuj8dY8kxg5MkoDCXQNeXF436gtdInfuXvgwEogSqkv1EEFKw_qci34aYDa4M5r6bjtTWn8DYSeBA8C42AYfQEkWIzuVYyFY1ZpAieTB15mUVZrY922IAcDIcog4dMT4K_xf2Rp_gdQUli4Dzh402biae5VQHs2oXkBcOx5i94nv_eoHHEERxeogzfOcpUWLMuYfBObrqXVb6XInv3oAxnYxFL2CE?AVOverride=1" -OutFile paserver.zip ;
+
+RUN dir
 
 # Move PAServer contents if needed (if it's in a subfolder)
 RUN if (Test-Path .\\PAServer\\23.0\\PAServer.exe) { \
