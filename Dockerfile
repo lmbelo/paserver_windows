@@ -4,7 +4,7 @@ FROM mcr.microsoft.com/windows/nanoserver:ltsc2022
 SHELL ["powershell", "-Command"]
 
 # Set working directory
-WORKDIR C:\PAServer
+WORKDIR C:\\PAServer
 
 # Download PAServer ZIP from Google Drive
 RUN Invoke-WebRequest -Uri "https://drive.usercontent.google.com/uc?export=download&id=1FidLUJJHxbKdROxWIlGVQVsj_bvb0t3Y" -OutFile paserver.zip ; \
